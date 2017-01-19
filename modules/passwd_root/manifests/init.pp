@@ -7,7 +7,7 @@
 
 class passwd_root {
 
-  edit_file { passwd_root:
+  file { passwd_root:
       fpath => "/etc/passwd",
       from => '^root:.*$',
       to => "root:x:0:0:root\${hostname}:/root:/bin/bash",
