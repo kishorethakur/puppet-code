@@ -5,13 +5,12 @@
 #
 # ===========================
 
-
 class passwd_root {
 
   edit_file { passwd_root:
       fpath => "/etc/passwd",
-      from => '^root:.*$,
-      to => "root:x:0:0:root\@${hostname}:/root:/bin/bash",
+      from => '^root:.*$',
+      to => "root:x:0:0:root\${hostname}:/root:/bin/bash",
       sep => ';'
    }
 
@@ -33,7 +32,7 @@ case $operatingsytem {
 }
 
 if( $dc == 'devopsi' ){
-      $root_password = $6$2Tpi/XJi$399Pk0XLrXylZ5vEPERb4/LTauVcfKUVCr16R.ZNjJhbAW9uyPyPPMOAxcKGoWdUN0r1RYKrVruebeYHft3ck0'
+      $root_password = '$6$2Tpi/XJi$399Pk0XLrXylZ5vEPERb4/LTauVcfKUVCr16R.ZNjJhbAW9uyPyPPMOAxcKGoWdUN0r1RYKrVruebeYHft3ck0'
    } else {
       $root_password = '$6$2Tpi/XJi$399Pk0XLrXylZ5vEPERb4/LTauVcfKUVCr16R.ZNjJhbAW9uyPyPPMOAxcKGoWdUN0r1RYKrVruebeYHft3ck0'
    }
