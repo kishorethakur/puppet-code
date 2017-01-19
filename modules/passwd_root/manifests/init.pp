@@ -1,48 +1,90 @@
 # Class: passwd_root
 # ===========================
 #
-# Full description of class passwd_root here.
+# Author:  kishorethakur.rajput@gmail.com
 #
-# Parameters
-# ----------
-#
-# Document parameters here.
-#
-# * `sample parameter`
-# Explanation of what this parameter affects and what it defaults to.
-# e.g. "Specify one or more upstream ntp servers as an array."
-#
-# Variables
-# ----------
-#
-# Here you should define a list of variables that this module would require.
-#
-# * `sample variable`
-#  Explanation of how this variable affects the function of this class and if
-#  it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#  External Node Classifier as a comma separated list of hostnames." (Note,
-#  global variables should be avoided in favor of class parameters as
-#  of Puppet 2.6.)
-#
-# Examples
-# --------
-#
-# @example
-#    class { 'passwd_root':
-#      servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
-#    }
-#
-# Authors
-# -------
-#
-# Author Name <author@domain.com>
-#
-# Copyright
-# ---------
-#
-# Copyright 2017 Your name here, unless otherwise noted.
-#
+# ===========================
+
+
 class passwd_root {
 
+  edit_file { passwd_root:
+      fpath => "/etc/passwd",
+      from => '^root:.*$,
+      to => "root:x:0:0:root\@${hostname}:/root:/bin/bash",
+      sep => ';'
+   }
+
+
+case $operatingsytem {
+   redhat: { 
+          package { "ruby-shadow":
+                     ensure => installed,
+		     require => User[root],
+                 }
+            }
+
+   CentOS: {
+	  package { "ruby-shadow":
+		    ensure => installed,
+		    require => User(root),
+                }
+           }
+}
+
+if( $dc == 'devopsi' ){
+      $root_password = $6$2Tpi/XJi$399Pk0XLrXylZ5vEPERb4/LTauVcfKUVCr16R.ZNjJhbAW9uyPyPPMOAxcKGoWdUN0r1RYKrVruebeYHft3ck0'
+   } else {
+      $root_password = '$6$2Tpi/XJi$399Pk0XLrXylZ5vEPERb4/LTauVcfKUVCr16R.ZNjJhbAW9uyPyPPMOAxcKGoWdUN0r1RYKrVruebeYHft3ck0'
+   }
+
+
+   user { "root":
+        ensure => present,
+        password => $root_password
+    }
+
+	file {
+	"/root":
+		ensure => directory,
+		owner => root,
+		group => root,
+		mode => 755;
+
+	"/root/.bashrc":
+		owner => root,
+		group => root,
+		mode => 755,
+		source => "puppet:///modules/passwd_root/.bashrc";
+
+	"/root/.exrc":
+		owner => root,
+		group => root,
+		mode => 755,
+		source => "puppet:///modules/passwd_root/.exrc";
+
+	"/root/.kshrc":
+		owner => root,
+		group => root,
+		mode => 755,
+		source => "puppet:///modules/passwd_root/.kshrc";
+
+	"/root/.profile":
+		ensure => link,
+		target => ".bashrc";
+
+	"/root/.vimrc":
+		owner => root,
+		group => root,
+		mode => 644,
+		source => "puppet:///modules/passwd_root/.vimrc";
+
+	"/sbin/ksh":
+		ensure => link,
+		target => "/bin/ksh";
+
+		
+	}
 
 }
+
