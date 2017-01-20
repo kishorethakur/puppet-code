@@ -2,4 +2,5 @@
 
 node default {
   include root
+  include motd
 }
