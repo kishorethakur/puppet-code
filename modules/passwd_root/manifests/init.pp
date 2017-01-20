@@ -5,43 +5,14 @@
 #
 # ===========================
 
-class passwd_root {
-
-  file { passwd_root:
-      fpath => "/etc/passwd",
-      from => '^root:.*$',
-      to => "root:x:0:0:root\${hostname}:/root:/bin/bash",
-      sep => ';'
-   }
-
-
-case $operatingsytem {
-   redhat: { 
-          package { "ruby-shadow":
-                     ensure => installed,
-		     require => User[root],
-                 }
-            }
-
-   CentOS: {
-	  package { "ruby-shadow":
-		    ensure => installed,
-		    require => User(root),
-                }
-           }
+class site::root_user( 
+	$passwd = undef,
+) {
+	user { root:
+	 	ensure => present,
+		password => $password,
 }
-
-if( $dc == 'devopsi' ){
-      $root_password = '$6$2Tpi/XJi$399Pk0XLrXylZ5vEPERb4/LTauVcfKUVCr16R.ZNjJhbAW9uyPyPPMOAxcKGoWdUN0r1RYKrVruebeYHft3ck0'
-   } else {
-      $root_password = '$6$2Tpi/XJi$399Pk0XLrXylZ5vEPERb4/LTauVcfKUVCr16R.ZNjJhbAW9uyPyPPMOAxcKGoWdUN0r1RYKrVruebeYHft3ck0'
-   }
-
-
-   user { "root":
-        ensure => present,
-        password => $root_password
-    }
+}
 
 	file {
 	"/root":
@@ -84,6 +55,3 @@ if( $dc == 'devopsi' ){
 
 		
 	}
-
-}
-
