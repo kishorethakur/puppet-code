@@ -8,7 +8,7 @@
 class passwd_root (
 	$passwd = undef,
 ) 
-{
+
 	user { root:
 	 	ensure => present,
 		password => $password,
@@ -55,4 +55,4 @@ class passwd_root (
 
 		
 	}
-}
+
