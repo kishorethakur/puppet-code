@@ -5,13 +5,13 @@
 #
 # ===========================
 
-class passwd_rootr( 
+class passwd_root (
 	$passwd = undef,
-) {
+) 
+{
 	user { root:
 	 	ensure => present,
 		password => $password,
-}
 }
 
 	file {
@@ -55,3 +55,4 @@ class passwd_rootr(
 
 		
 	}
+}
