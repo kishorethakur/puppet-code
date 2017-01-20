@@ -5,7 +5,7 @@
 #
 # ===========================
 
-class site::root_user( 
+class passwd_rootr( 
 	$passwd = undef,
 ) {
 	user { root:
