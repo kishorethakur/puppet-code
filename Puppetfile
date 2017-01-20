@@ -9,4 +9,3 @@ mod 'puppetlabs-registry'
 
 #Developed Modules for Devopsi
 
-mod 'KishoreThakur-passwd_root'
