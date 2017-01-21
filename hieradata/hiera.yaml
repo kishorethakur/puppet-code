@@ -4,4 +4,5 @@
 :yaml:
   :datadir: /etc/puppetlabs/code/environments/production/hieradata
 :hierarchy:
+  - "nodes/%{::trusted.certname}"
   - common

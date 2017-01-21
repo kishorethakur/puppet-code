@@ -1,0 +1,10 @@
+#
+# /etc/resolv.conf
+#
+# This file is generated from Puppet
+#
+search devopsi.com
+<% dns_servers.each do |dnsserver| -%>
+nameserver <%= dnsserver %>
+<% end -%>
+options timeout:2

@@ -4,3 +4,7 @@ classes:
 root::password: '$6$DuKZUraa$6HmQhOOvFuuo5qUZy1T5Jh/mA7sT7gq/1jxzMLq0kKt.fbP7sr3bMJBYLaTxxLWVy6Rl1YiVbefuRUsB52zzH0'
 root::ssh_authorized_keys_ensure: 'absent'
 root::email_recipient: 'kishorethakur.rajput@gmail.com'
+
+dnsclient::dns_servers:
+  - 192.168.2.5
+

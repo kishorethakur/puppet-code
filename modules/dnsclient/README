@@ -1,0 +1,6 @@
+This is our README file for the new custom module.  you will find init.pp under
+the manifest directory and should store the files to be synced under files
+directory.
+
+See info at docs.puppetlabs.com for more detailed information about modules.
+
