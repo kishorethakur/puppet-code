@@ -27,7 +27,7 @@ class root (
   }
 
   file { 
-	"/root/.bashrc":
+	'/root/.bashrc':
 		owner => root,
 		group => root,
 		mode => 755,
