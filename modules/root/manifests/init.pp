@@ -31,19 +31,19 @@ class root (
 		owner => root,
 		group => root,
 		mode => 755,
-		source => "puppet:///modules/passwd_root/.bashrc";
+		source => "puppet:///modules/root/.bashrc";
 
 	"/root/.exrc":
 		owner => root,
 		group => root,
 		mode => 755,
-		source => "puppet:///modules/passwd_root/.exrc";
+		source => "puppet:///modules/root/.exrc";
 
 	"/root/.kshrc":
 		owner => root,
 		group => root,
 		mode => 755,
-		source => "puppet:///modules/passwd_root/.kshrc";
+		source => "puppet:///modules/root/.kshrc";
 
 	"/root/.profile":
 		ensure => link,
@@ -53,13 +53,13 @@ class root (
 		owner => root,
 		group => root,
 		mode => 644,
-		source => "puppet:///modules/passwd_root/.vimrc";
+		source => "puppet:///modules/root/.vimrc";
 
 	"/root/.vnc":
 		owner => root,
 		group => root,
 		mode => 755,
-		source => "puppet:///modules/passwd_root/.vnc";
+		source => "puppet:///modules/root/.vnc";
 
      }
 
