@@ -1,7 +1,7 @@
 #Puppet Module info, please do not edit without approvals.
 
 #Forge Modules
-mod "motd"
+mod "puppetlabs-motd"
 
 
 #Developed Modules for Devopsi
