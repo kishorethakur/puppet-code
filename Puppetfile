@@ -1,9 +1,9 @@
 #Puppet Module info, please do not edit without approvals.
 
 #Forge Modules
-mod 'motd'
+mod "motd"
 
 
 #Developed Modules for Devopsi
-mod 'root'
-mod 'dnsclient'
+mod "root"
+mod "dnsclient"
