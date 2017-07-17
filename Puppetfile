@@ -3,3 +3,5 @@
 #Forge Modules
 
 #Developed Modules for Devopsi
+mod 'puppet-sudo',
+  :git => 'https://github.com/kishorethakur/puppet-sudo'
