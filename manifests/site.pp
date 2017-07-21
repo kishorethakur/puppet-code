@@ -3,4 +3,5 @@
 node default {
   include sudo
   include motd
+  include x3_scripts
 }
