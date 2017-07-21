@@ -4,3 +4,8 @@ root::ssh_authorized_keys_ensure: 'absent'
 root::email_recipient: 'kishorethakur.rajput@gmail.com'
 dnsclient::dns_servers: '192.168.2.5'
 
+sudo::configs:
+    'kthakur':
+        'content'   :   "kthakur ALL=(ALL) NOPASSWD: ALL"
+
+
