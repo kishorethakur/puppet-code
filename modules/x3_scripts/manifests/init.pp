@@ -4,8 +4,7 @@ class x3_scripts {
           mode    => '0744',
           owner   => 'root',
           group   => 'root',
-          source  => 'puppet:///.../scripts',
-          recurse => 'remote',
-          path    => '/scripts',
+          recurse =>  'remote',
+          source  => 'puppet:///modules/x3_scripts/files/scripts',
      }
 }
