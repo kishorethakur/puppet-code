@@ -5,6 +5,6 @@ class x3_scripts {
           owner   => 'root',
           group   => 'root',
           recurse =>  'remote',
-          source  => 'puppet:///files/scripts',
+          source  => 'puppet:///modules/x3_scripts/files/scripts',
      }
 }

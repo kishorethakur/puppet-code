@@ -1,6 +1,8 @@
 #Puppet Module info, please do not edit without approvals.
 
 #Forge Modules
+mod 'puppetlabs-stdlib'
+  :git => 'https://github.com/kishorethakur/puppetlabs-stdlib'
 
 #Developed Modules for Devopsi
 mod 'puppet-sudo',
