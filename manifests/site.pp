@@ -3,6 +3,6 @@
 node default {
   include sudo
   include motd
-  include x3_scripts
+  include x3scripts
   include puppetlabs-stdlib
 }
