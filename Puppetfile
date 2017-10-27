@@ -4,6 +4,9 @@
 mod 'puppetlabs-stdlib',
   :git => 'https://github.com/kishorethakur/puppetlabs-stdlib'
 
+mode 'puppetlabs-puppetboard',
+  :git => 'https://github.com/voxpupuli/puppetboard'
+
 #Developed Modules for Devopsi
 mod 'puppet-sudo',
   :git => 'https://github.com/kishorethakur/puppet-sudo'
