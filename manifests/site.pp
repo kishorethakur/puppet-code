@@ -4,5 +4,5 @@ node default {
   include sudo
   include motd
   include x3scripts
-  include puppetlabs-stdlib
+  include stdlib
 }
